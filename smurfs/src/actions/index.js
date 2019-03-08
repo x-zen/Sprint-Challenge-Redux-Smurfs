@@ -34,7 +34,7 @@ export function getSmurfs(smurfs) {
   return (dispatch) => {
     axios.get('http://localhost:3000/smurfs')
     .then(res => {
-      dispatch(type: getSmurfs, res.data))
+      dispatch(type: getSmurfs, payload: res.data))
     })
     .catch(err => {
       throw(err);
