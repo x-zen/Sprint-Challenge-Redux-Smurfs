@@ -16,8 +16,31 @@
 
 /*
   You'll only need one smurf reducer for this project.
-  Feel free to export it as a default and import as rootReducer. 
+  Feel free to export it as a default and import as rootReducer.
   This will guard your namespacing issues.
   There is no need for 'combineReducers' in this project.
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
+
+import { GET_SMURFS, ADD_SMURF } from '../actions/index.js';
+
+const initialState = {
+  smurfs: [],
+  fetchingSmurfs: false,
+  addingSmurf: false,
+  error: null
+};
+
+function reducer(state = initialState, actions) {
+  switch({ GET_SMURFS, ADD_SMURF }){
+    case GET_SMURFS:
+      return {...state, smurfs: GET_SMURFS.payload}
+
+    case ADD_SMURF:
+      return {...state, newSmurf: ADD_SMURF.payload}
+    default:
+      return state;
+    }
+  }
+
+export default reducer;
