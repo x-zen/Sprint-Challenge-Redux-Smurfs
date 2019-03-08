@@ -32,9 +32,9 @@ export function addSmurf(newSmurf) {
 export const GET_SMURFS = 'GET_SMURFS';
 export function getSmurfs(smurfs) {
   return (dispatch) => {
-    axios.get('/smurfs')
+    axios.get('http://localhost:3000/smurfs')
     .then(res => {
-      dispatch(getSmurfs(smurfs.data))
+      dispatch(type: getSmurfs, res.data))
     })
     .catch(err => {
       throw(err);
