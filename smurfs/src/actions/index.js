@@ -16,9 +16,20 @@
 
 import axios from 'axios';
 
+
 export const ADD_SMURF = 'ADD_SMURF';
-export function addSmurf(newSmurf) {
-  return {
+export const ADDED_SMURF = 'ADDED_SMURF';
+export const SMURF_ERR = 'SMURF_ERR';
+export constt addSmurf = (id) => {
+  return (dispatch) => {
+    axios.post('http://localhost:3000/smurfs')
+      .then(res => {
+        dispatch({type: addSmurf, payload: res.data})
+      })
+      .catch(err => {
+        dispatch({type: SMURF_ERR, payload: err})
+      })
+  }
     type: ADD_SMURF,
     payload: {
       name: newSmurf.name,
@@ -30,14 +41,16 @@ export function addSmurf(newSmurf) {
 }
 
 export const GET_SMURFS = 'GET_SMURFS';
-export function getSmurfs(smurfs) {
+export const GOT_SMURFS = 'GOT_SMURFS';
+export ERR = 'ERR';
+export const getSmurfs = () => {
   return (dispatch) => {
     axios.get('http://localhost:3000/smurfs')
     .then(res => {
-      dispatch(type: getSmurfs, payload: res.data))
+      dispatch({type: getSmurfs, payload: res.data})
     })
     .catch(err => {
-      throw(err);
+      dispatch({type: ERR, payload: err})
     });
   };
 };

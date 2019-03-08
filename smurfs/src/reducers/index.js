@@ -31,16 +31,14 @@ const initialState = {
   error: null
 };
 
-function reducer(state = initialState, actions) {
-  switch({ GET_SMURFS, ADD_SMURF }){
+export const reducer(state = initialState, action) {
+  switch(action.type){
     case GET_SMURFS:
-      return {...state, smurfs: GET_SMURFS.payload}
+      return {...state, smurfs: acton.payload}
 
     case ADD_SMURF:
-      return {...state, newSmurf: ADD_SMURF.payload}
+      return {...state, newSmurf: action.payload}
     default:
       return state;
     }
   }
-
-export default reducer;
