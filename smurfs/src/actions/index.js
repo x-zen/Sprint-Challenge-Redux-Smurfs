@@ -30,15 +30,6 @@ export constt addSmurf = (id) => {
         dispatch({type: SMURF_ERR, payload: err})
       })
   }
-    type: ADD_SMURF,
-    payload: {
-      name: newSmurf.name,
-      age: newSmurf.age,
-      height: newSmurf.height,
-      id: newSmurf.id
-    }
-  }
-}
 
 export const GET_SMURFS = 'GET_SMURFS';
 export const GOT_SMURFS = 'GOT_SMURFS';
