@@ -15,7 +15,7 @@ class SmurfList extends React.Component {
     return (
       <div>
         {this.props.smurfs.map(smurf => {
-          return <SmurfCard key={smurf.id} smurf={smurf} />;
+          return <SmurfCard key={smurf.name} smurf={smurf} />;
         })}
       </div>
     );
